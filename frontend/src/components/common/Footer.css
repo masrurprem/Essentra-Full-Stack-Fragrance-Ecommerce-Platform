@@ -1,0 +1,122 @@
+.footer {
+  padding: 1.8rem 0.7rem 1.2rem 0.7rem;
+  background: #f3f3f3;
+  display: grid;
+  row-gap: 15px;
+}
+.footer--up {
+  background-color: #f3f3f3;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 18px;
+}
+.footer--up .footer--brand--section {
+  border: none;
+  background-color: #e0e4ea;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+.footer--image {
+  width: 225px;
+  height: auto;
+  display: block;
+  margin-left: -8px;
+}
+.footer--text {
+  margin: 0;
+  line-height: 1.7;
+  color: rgb(58, 57, 57);
+  font-size: 20px;
+  max-width: 90%;
+  text-align: justify;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.footer--up .footer--link--section {
+  border: none;
+  background-color: #e0e4ea;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3rem;
+  gap: 5px;
+}
+.link--container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.link--container > h2 {
+  color: rgb(83, 82, 82);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.link--list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link--list a {
+  text-decoration: none;
+  color: rgb(58, 57, 57);
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.link--list a:hover {
+  color: #000;
+  transform: translateX(4px);
+}
+.footer--down {
+  border: none;
+  background-color: #e0e4ea;
+  padding: 1.4rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.copyright--text {
+  color: #2d3748;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.social--container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social--container a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #1f2937;
+  color: #d1cfcf;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social--container a:hover {
+  background-color: #d6dbe3;
+  color: #2d3748;
+  border: 1px solid seagreen;
+  transform: translateY(-3px);
+}

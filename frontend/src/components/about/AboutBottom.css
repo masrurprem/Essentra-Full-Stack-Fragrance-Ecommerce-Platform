@@ -1,0 +1,44 @@
+.about--bottom--container {
+  max-width: 105rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  background: #252f43;
+  margin-bottom: 3.2rem;
+}
+
+.about--bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.2rem;
+  color: #e8e2e2;
+}
+.about--bottom > h2 {
+  font-size: 35px;
+}
+
+.about--bottom--text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.about--bottom--text ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about--bottom--text ul li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+span {
+  font-size: 15px;
+}

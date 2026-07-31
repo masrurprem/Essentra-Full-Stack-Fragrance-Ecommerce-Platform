@@ -1,0 +1,165 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// models
+model User {
+  id                     Int       @id @default(autoincrement())
+  name                   String
+  email                  String    @unique
+  password               String
+  passwordChangedAt      DateTime?
+  passwordResetToken     String?
+  passwordResetExpiresIn DateTime?
+  role                   Role      @default(USER)
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+  carts                  Cart[]
+  orders                 Order[]
+  reviews                Review[]
+  replies                Reply[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Product {
+  id               Int               @id @unique @default(autoincrement())
+  name             String
+  slug             String            @unique
+  imageUrl         String?
+  description      String
+  shortDescription String
+  price            Decimal
+  stock            Int
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  categories       ProductCategory[]
+  carts            Cart[]
+  orderItems       OrderItem[]
+  reviews          Review[]
+}
+
+model Category {
+  id        Int               @id @unique @default(autoincrement())
+  name      String
+  slug      String            @unique
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  products  ProductCategory[]
+}
+
+model ProductCategory {
+  productId  Int
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@id([productId, categoryId])
+}
+
+model Cart {
+  quantity  Int
+  userId    Int
+  productId Int
+  user      User     @relation(fields: [userId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@id([userId, productId])
+}
+
+model Order {
+  id     Int @id @default(autoincrement())
+  userId Int
+
+  orderStatus     OrderStatus   @default(PENDING)
+  paymentMethod   PaymentMethod
+  paymentStatus   PaymentStatus @default(PENDING)
+  shippingAddress String
+  contactNumber   String
+  subTotal        Int
+  shippingCost    Int
+  totalAmount     Decimal
+  user            User          @relation(fields: [userId], references: [id])
+  orderItems      OrderItem[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  SHIPPING
+  DELIVERED
+  CANCELLED
+  RETURNED
+  REFUNDED
+}
+
+//
+enum PaymentMethod {
+  CASH_ON_DELIVERY
+  BKASH
+  NAGAD
+}
+
+//
+enum PaymentStatus {
+  PENDING
+  PAID
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+model OrderItem {
+  orderId   Int
+  productId Int
+  quantity  Int
+  unitPrice Decimal
+  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@id([orderId, productId])
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  userId    Int
+  comment   String
+  rating    Decimal?
+  replies   Reply[]
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, productId])
+}
+
+model Reply {
+  id        Int      @id @default(autoincrement())
+  reviewId  Int
+  userId    Int
+  text      String
+  review    Review   @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
