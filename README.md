@@ -63,19 +63,19 @@ ecommerce/
 
 ### Home Page
 
-![Home Page](./screenshots/heroSection.png)
+![Home Page](./screenshots/heroSection.PNG)
 
 ### Product Listing
 
-![Product Listing](./screenshots/productCatalogueSample.png)
+![Product Listing](./screenshots/productCatalogueSample.PNG)
 
 ### Product Details
 
-![Product Details](./screenshots/productDetails.png)
+![Product Details](./screenshots/productDetails.PNG)
 
-### Shopping Cart
+### Footer
 
-![Footer](./screenshots/footer.png)
+![Footer](./screenshots/footer.PNG)
 
 > **Note:** Screenshots will be updated as the project progresses.
 
