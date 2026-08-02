@@ -30,7 +30,8 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
+//console.log(path.join(__dirname, "..", "uploads"));
 //Body-Parser, for reading data from body into req.body
 app.use(express.json({ limit: "30kb" }));
 //cookie-parser

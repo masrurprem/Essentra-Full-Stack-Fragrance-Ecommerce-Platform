@@ -108,7 +108,7 @@ export const createProduct = catchAsync(async (req, res) => {
 // get all products
 export const getAllProducts = catchAsync(async (req, res) => {
   //filter clause
-  console.log(req.query);
+  //console.log(req.query);
   const queryFilterObj = { ...req.query };
   const excludedFields = [
     "limit",
@@ -196,7 +196,7 @@ export const getAllProducts = catchAsync(async (req, res) => {
   const sortClause = sortCriteria[req.query.sortBy] || { createdAt: "desc" };
   // pagination clause
   const page = Number(req.query.page) || 1;
-  const limit = Number(req.query.limit) || 7;
+  const limit = Number(req.query.limit) || 4;
   const skip = (page - 1) * limit;
   // handle error if skip>=total products
   const productCount = await prisma.product.count();
@@ -208,12 +208,14 @@ export const getAllProducts = catchAsync(async (req, res) => {
   }
   // selection clause
   const defaultFields = {
+    id: true,
     name: true,
     slug: true,
     description: false,
     shortDescription: true,
     price: true,
     stock: true,
+    imageUrl: true,
     categories: {
       select: {
         category: {
@@ -267,9 +269,11 @@ export const getProductBySlug = catchAsync(async (req, res) => {
       slug: slug,
     },
     select: {
+      id: true,
       name: true,
       slug: true,
-      description: false,
+      imageUrl: true,
+      description: true,
       shortDescription: true,
       price: true,
       stock: true,

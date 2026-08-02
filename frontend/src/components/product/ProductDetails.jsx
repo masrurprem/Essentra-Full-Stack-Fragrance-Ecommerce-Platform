@@ -1,22 +1,30 @@
 import React from "react";
 import { FaMinus, FaPlus, FaCheck } from "react-icons/fa";
 import "./ProductDetails.css";
-import productImage from "../../assets/images/prod2.png";
 import ProductContainer from "./ProductContainer";
+import { useLoaderData } from "react-router-dom";
+import { getProductBySlug } from "../../services/homeApi";
 
 const ProductDetails = () => {
+  const product = useLoaderData();
+  console.log(product);
   return (
     <>
       <div className="container">
         <div className="product--details--top">
           <div className="product--details--image">
-            <img src={productImage} alt="product image" />
+            <img
+              src={`http://localhost:4000/uploads/img/products/${product.imageUrl}`}
+              alt={product.name}
+            />
           </div>
           <div className="product--description">
             <div className="product--shorts">
-              <p>The Premium Oud Sultan</p>
-              <p>Attar, Men's</p>
-              <p className="price--product">৳550</p>
+              <p>{product.name}</p>
+              <p className="text-[25px]">
+                {product.categories.map((cat) => cat.name).join(", ")}
+              </p>
+              <p className="price--product">৳{product.price}</p>
             </div>
             {/* cart */}
             <div className="product--cart">
@@ -54,24 +62,13 @@ const ProductDetails = () => {
             </div>
             <hr />
             <div className="product--note">
-              <p className="product--note--para">
-                Sultan Oud Premium Perfume for Men delivers a rich and
-                sophisticated fragrance crafted with premium oud notes. Designed
-                for the modern gentleman, it offers a long-lasting scent that
-                leaves a bold and memorable impression for every occasion.
-              </p>
+              <p className="product--note--para">{product.description}</p>
               <div className="note--bottom">
-                <p>Detailed Specification:</p>
+                <p className="text-gray-600">Detailed Specification:</p>
                 <ul className="product--note--list">
-                  <li>Wearable Seasons: Spring, Summer</li>
-                  <li>
-                    Suitable Occasions: Casual outings, Formal events,
-                    Professional settings
-                  </li>
-                  <li>Fragrance Family: Woody, Oriental, Oud </li>
-                  <li>Longevity: Long-lasting fragrance (8–12 hours*)</li>
-                  <li>
-                    Ideal For: Daily wear, Evening events, Special occasions
+                  <li className="font-semibold text-red-500">
+                    {" "}
+                    To be Updated Very Soon.....
                   </li>
                 </ul>
               </div>
@@ -89,5 +86,11 @@ const ProductDetails = () => {
     </>
   );
 };
+
+// product data(details) loader
+export async function loader({ params }) {
+  const productDetails = await getProductBySlug(params.slug);
+  return productDetails.data;
+}
 
 export default ProductDetails;

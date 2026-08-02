@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #dcbdbd;
+  background: #e0dfdf;
   transition:
     box-shadow 0.35s ease,
     transform 0.35s ease;
@@ -27,9 +27,9 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 .product--details--image img {
-  width: 80%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: 370px;
+  object-fit: contain;
 }
 
 .product--description {
@@ -165,9 +165,9 @@ li svg {
 .product--note--para {
   color: #4e4f4f;
 }
-.product--note--list li {
+/* .product--note--list li {
   color: #4e4f4f;
-}
+} */
 
 .review--container {
   border: none;
