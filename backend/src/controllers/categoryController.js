@@ -61,10 +61,11 @@ export const getAllCategories = catchAsync(async (req, res) => {
 
   const sortClause = req.query.sortBy
     ? sortCriteria[req.query.sortBy]
-    : { createdAt: "desc" };
+    : { createdAt: "asc" };
 
   //field selection clause
   const defaultFields = {
+    id: true,
     name: true,
     slug: true,
     _count: {
@@ -83,8 +84,8 @@ export const getAllCategories = catchAsync(async (req, res) => {
     //sort
     orderBy: sortClause,
     //pagination
-    skip: skip,
-    take: limit,
+    // skip: skip,
+    // take: limit,
 
     // fields
     select: defaultFields,

@@ -18,7 +18,7 @@ const router = express.Router();
 router
   .route("/")
   .post(protectRoute, restrictTo("ADMIN"), categoryLimiter, createCategory)
-  .get(protectRoute, restrictTo("ADMIN"), categoryLimiter, getAllCategories);
+  .get(categoryLimiter, getAllCategories);
 router.get(
   "/uncategorized-products",
   protectRoute,

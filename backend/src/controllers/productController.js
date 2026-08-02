@@ -222,7 +222,7 @@ export const getAllProducts = catchAsync(async (req, res) => {
           select: {
             id: false,
             name: true,
-            slug: false,
+            slug: true,
           },
         },
       },
