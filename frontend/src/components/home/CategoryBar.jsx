@@ -1,34 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./CategoryBar.css";
 
-const CategoryBar = () => {
+const CategoryBar = ({ categories }) => {
+  //console.log(categories);
   return (
     <>
       <div className="category--sidebar">
         <p className="category--text">Explore</p>
 
         <ul className="category--list">
-          <li className="category--item">
-            <a href="">Atomizer</a>
-          </li>
-          <li className="category--item">
-            <a href="">For Him</a>
-          </li>
-          <li className="category--item">
-            <a href="">For Her</a>
-          </li>
-          <li className="category--item">
-            <a href="">Attar</a>
-          </li>
-          <li className="category--item">
-            <a href="">Cool Water</a>
-          </li>
-          <li className="category--item">
-            <a href="">Summer</a>
-          </li>
+          {categories.map((category) => (
+            <li key={category.id} className="category--item">
+              <Link to={`/product-category/${category.slug}`}>
+                {category.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
-      ;
     </>
   );
 };

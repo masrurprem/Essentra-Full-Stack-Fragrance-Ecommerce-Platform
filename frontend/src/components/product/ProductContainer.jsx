@@ -14,10 +14,6 @@ const ProductContainer = ({ headerString, products = [] }) => {
           </button>
         </div>
         <div className="products--container">
-          {/* <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard /> */}
           {/* map products and show as cards */}
           {products.slice(0, 12).map((product) => (
             <ProductCard key={product.id} product={product} />

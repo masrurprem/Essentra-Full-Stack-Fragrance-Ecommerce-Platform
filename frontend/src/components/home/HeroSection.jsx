@@ -3,12 +3,12 @@ import HeroCarousel from "./HeroCarousel";
 import CategoryBar from "./CategoryBar";
 import "./HeroSection.css";
 
-const HeroSection = () => {
+const HeroSection = ({ categories }) => {
   return (
     <>
       <section className="hero--section">
         <div className="container hero--layout">
-          <CategoryBar />
+          <CategoryBar categories={categories} />
           <HeroCarousel />
         </div>
       </section>

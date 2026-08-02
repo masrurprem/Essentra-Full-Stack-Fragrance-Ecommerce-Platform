@@ -1,21 +1,14 @@
 .category--sidebar {
-  width: 230px;
-  flex-shrink: 0;
-  border: 1.5px solid #b4b0b0;
-  padding: 10px 20px;
-  border-radius: 5px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 10px;
+  height: auto;
   text-align: center;
   background-color: #e0dada;
-  overflow-y: auto;
-}
-.category--sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.category--sidebar::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 10px;
 }
 
 .category--text {
@@ -33,7 +26,7 @@
 
 .category--item a {
   display: block;
-  padding: 0.8rem 1rem;
+  padding: 0.55rem 2rem;
 
   text-decoration: none;
   color: #666;

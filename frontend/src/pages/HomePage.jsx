@@ -4,16 +4,16 @@ import HeroSection from "../components/home/HeroSection";
 import FeaturedIn from "../components/utils/FeaturedIn";
 import Epilogue from "../components/utils/Epilogue";
 import ProductContainer from "../components/product/ProductContainer";
-import { getProducts } from "../services/homeApi";
+import { getProducts, getCategories } from "../services/homeApi";
 import { useLoaderData } from "react-router-dom";
 
 const HomePage = () => {
-  const products = useLoaderData();
+  const { products, categories } = useLoaderData();
 
   return (
     <>
       <div className="homepage--layout">
-        <HeroSection />
+        <HeroSection categories={categories} />
         <FeaturedIn />
         <ProductContainer
           headerString="Featured Products"
@@ -27,8 +27,12 @@ const HomePage = () => {
 };
 // product loader
 export async function loader() {
-  const products = await getProducts();
-  return products.data;
+  const [productRes, categoryRes] = await Promise.all([
+    getProducts(),
+    getCategories(),
+  ]);
+
+  return { products: productRes.data, categories: categoryRes.data };
 }
 
 export default HomePage;
