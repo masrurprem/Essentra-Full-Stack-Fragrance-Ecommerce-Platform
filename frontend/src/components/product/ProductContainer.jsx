@@ -1,17 +1,14 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
 import ProductCard from "./productCard";
 import "./ProductContainer.css";
 
-const ProductContainer = ({ headerString, products = [] }) => {
+const ProductContainer = ({ headerString, products = [], action }) => {
   return (
     <>
       <div className="container">
         <div className="product--container--title">
           <h1>{headerString}</h1>
-          <button>
-            Browse More Collection <FaArrowRight />
-          </button>
+          {action}
         </div>
         <div className="products--container">
           {/* map products and show as cards */}

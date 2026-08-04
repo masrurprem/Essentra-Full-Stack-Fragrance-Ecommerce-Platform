@@ -29,27 +29,3 @@
   font-size: 27px;
   color: rgb(69, 68, 68);
 }
-
-.product--container--title button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  padding: 1rem;
-  border: none;
-  outline: none;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #bacbc4, #b8f2d9);
-  color: #333;
-  transition: all 0.5s ease;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family:
-    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-    Arial, sans-serif;
-}
-
-.product--container--title button:hover {
-  filter: brightness(0.92);
-}

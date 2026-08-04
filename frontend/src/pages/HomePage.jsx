@@ -6,6 +6,7 @@ import Epilogue from "../components/utils/Epilogue";
 import ProductContainer from "../components/product/ProductContainer";
 import { getProducts, getCategories } from "../services/homeApi";
 import { useLoaderData } from "react-router-dom";
+import ExploreButton from "../components/common/ExploreButton";
 
 const HomePage = () => {
   const { products, categories } = useLoaderData();
@@ -18,8 +19,13 @@ const HomePage = () => {
         <ProductContainer
           headerString="Featured Products"
           products={products}
+          action={<ExploreButton />}
         />
-        <ProductContainer headerString="New Arrivals" products={products} />
+        <ProductContainer
+          headerString="New Arrivals"
+          products={products}
+          action={<ExploreButton />}
+        />
         <Epilogue />
       </div>
     </>

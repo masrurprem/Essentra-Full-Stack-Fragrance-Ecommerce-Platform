@@ -5,6 +5,9 @@ import ProductPage, { loader as productByCatLoader } from "./pages/ProductPage";
 import ProductDetails, {
   loader as detailsLoader,
 } from "./components/product/ProductDetails";
+import CollectionPage, {
+  loader as collectionLoader,
+} from "./pages/CollectionPage";
 import Contact from "./components/contact/Contact";
 import AboutPage from "./pages/AboutPage";
 import ProductContainer from "./components/product/ProductContainer";
@@ -29,6 +32,11 @@ export const router = createBrowserRouter([
         path: "/product-category/:slug",
         element: <ProductPage />,
         loader: productByCatLoader,
+      },
+      {
+        path: "/collection",
+        element: <CollectionPage />,
+        loader: collectionLoader,
       },
       {
         path: "/about-us",

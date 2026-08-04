@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contact.css";
+import SortDropdown from "../common/SortDropdown";
 
 const Contact = () => {
   return (
@@ -30,12 +31,6 @@ const Contact = () => {
             expedita. Ratione ipsum qui possimus, minus dolores in officia,
             repellat quae nobis maiores beatae aperiam atque molestias impedit
             cupiditate laboriosam! Exercitationem architecto explicabo sed
-            natus, repellat quo soluta deleniti cum culpa. Labore odit, modi
-            atque commodi deserunt aut perspiciatis! Nesciunt ipsa voluptatem
-            quam non doloremque? Rerum, soluta optio unde quam ea,
-            exercitationem culpa qui natus explicabo, rem amet tenetur porro
-            pariatur. Iste culpa voluptatum numquam accusamus ipsum ex sed id,
-            eum praesentium labore magnam minima debitis quo. Quis aliquid de
           </p>
         </div>
       </div>
