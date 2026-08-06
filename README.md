@@ -29,15 +29,16 @@ Essentra is a modern full-stack e-commerce platform built for premium fragrance 
 - Responsive user interface
 - Product listing
 - Product details page
-- Search functionality (to be completed)
-- Shopping cart interface
 - navigation
+- sorting, filtering products
+- pagination (currently working on)
+- Search functionality (to be completed)
+- Shopping cart interface (to be completed)
 
 ## 🛣️ Future Roadmap
 
 The following features are planned for future development:
 
-- Connect the frontend and backend APIs
 - Build a comprehensive admin dashboard
 - Develop a user profile and account management system
 - Integrate a payment system
