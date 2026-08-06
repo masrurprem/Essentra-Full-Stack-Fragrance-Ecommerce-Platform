@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css";
 import SortDropdown from "../common/SortDropdown";
+import Filter from "../common/Filter";
 
 const Contact = () => {
   return (

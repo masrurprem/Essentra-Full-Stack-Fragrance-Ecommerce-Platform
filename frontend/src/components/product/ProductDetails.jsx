@@ -21,9 +21,7 @@ const ProductDetails = () => {
           <div className="product--description">
             <div className="product--shorts">
               <p>{product.name}</p>
-              <p className="text-[25px]">
-                {product.categories.map((cat) => cat.name).join(", ")}
-              </p>
+              <p>{product.categories.map((cat) => cat.name).join(", ")}</p>
               <p className="price--product">৳{product.price}</p>
             </div>
             {/* cart */}
@@ -64,21 +62,16 @@ const ProductDetails = () => {
             <div className="product--note">
               <p className="product--note--para">{product.description}</p>
               <div className="note--bottom">
-                <p className="text-gray-600">Detailed Specification:</p>
+                <p>Detailed Specification:</p>
                 <ul className="product--note--list">
-                  <li className="font-semibold text-red-500">
-                    {" "}
-                    To be Updated Very Soon.....
-                  </li>
+                  <li> To be Updated Very Soon.....</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <div className="product--details--bottom">
-          <div className=" container review--container">
-            No Product Reviews Yet!
-          </div>
+          <div className="review--container">No Product Reviews Yet!</div>
           <ProductContainer headerString="You May Also Like" />
           <ProductContainer headerString="People Also Bought" />
         </div>

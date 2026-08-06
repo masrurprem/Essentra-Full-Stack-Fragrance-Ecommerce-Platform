@@ -1,0 +1,75 @@
+.filter--container {
+  width: 100%;
+  max-width: 280px;
+  padding: 1.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category--filter select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.category--filter select:focus {
+  border-color: #222;
+}
+
+.price--filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.price--filter h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.price--slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+.price--labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.price--filter--button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.price--filter--button:hover {
+  background: #333;
+}
+
+.price--labels span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #272626;
+}

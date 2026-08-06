@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "./productCard";
 import "./ProductContainer.css";
+import Filter from "../common/Filter";
 
 const ProductContainer = ({ headerString, products = [], action }) => {
   return (
